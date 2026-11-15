@@ -1,0 +1,59 @@
+HOW TO RUN THE PROJECT
+======================
+
+IMPORTANT:
+Run the SQL files in the Database folder in the following order.
+
+STEP 1: Open MySQL Workbench and connect to your MySQL Server.
+
+STEP 2: Open and execute:
+        01_create_database.sql
+
+STEP 3: Open and execute:
+        02_create_tables.sql
+
+STEP 4: Open and execute:
+        03_insert_sample_data.sql
+
+STEP 5: Open and execute:
+        04_mixed_queries.sql
+
+STEP 6: Open and execute:
+        05_views.sql
+
+STEP 7: Open and execute:
+        06_procedures.sql
+
+STEP 8: Open and execute:
+        07_functions.sql
+
+STEP 9: Test the views:
+        SELECT * FROM vw_customer_orders;
+        SELECT * FROM vw_product_sales;
+
+STEP 10: Test the procedures:
+         CALL sp_get_customer_orders(1);
+         CALL sp_get_sales_between_dates('2026-01-01', '2026-03-31');
+         CALL sp_get_products_by_category('Electronics');
+         CALL sp_get_order_details(1001);
+         CALL sp_get_top_customers(3);
+
+STEP 11: Test the functions:
+         SELECT fn_order_total(1001);
+         SELECT fn_discount_price(50000, 10);
+         SELECT fn_customer_order_count(1);
+         SELECT fn_product_stock_value(101);
+         SELECT fn_customer_completed_spending(1);
+
+NOTES
+-----
+- Select the entire SQL script and click the lightning bolt in Workbench, or
+  execute statements in sections.
+- The DELIMITER commands in the procedure and function scripts are required
+  so MySQL can parse the complete routine body.
+- If stored function creation is blocked by binary logging settings, ask the
+  MySQL administrator to check the server's function-creator permissions and
+  configuration. Do not change production server settings without permission.
+- If you run the sample INSERT script more than once, primary-key errors may
+  occur because the sample IDs already exist. Recreate the database or remove
+  the existing sample rows before running it again.

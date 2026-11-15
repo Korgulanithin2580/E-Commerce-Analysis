@@ -1,0 +1,66 @@
+E-COMMERCE SALES ANALYSIS USING MYSQL
+=====================================
+
+1. PROJECT OVERVIEW
+-------------------
+This beginner-level project uses SQL to organize and analyze sample e-commerce
+sales data. It helps a learner understand how an online store stores customer,
+product, order and order-item information and how SQL can be used to answer
+basic business questions.
+
+2. PROJECT OBJECTIVES
+---------------------
+- Store customer and product information.
+- Record orders and the products included in each order.
+- Calculate sales revenue from completed orders.
+- Identify best-selling products and high-value customers.
+- Analyze sales by month and product category.
+- Practise joins, subqueries, views, stored procedures and functions.
+
+3. SOFTWARE REQUIREMENTS
+------------------------
+- MySQL Server 8.0 or later
+- MySQL Workbench 8.0 or another MySQL client
+- Windows, Linux or macOS
+- Basic knowledge of SQL
+
+4. HARDWARE REQUIREMENTS
+------------------------
+- Computer with at least 4 GB RAM recommended
+- Approximately 500 MB free space for MySQL and project files
+- Keyboard, mouse and monitor
+
+5. FUNCTIONAL REQUIREMENTS
+--------------------------
+- Add and view customers.
+- Add and view products.
+- Create orders for existing customers.
+- Store one or more products in an order.
+- View order details.
+- Calculate product-wise, customer-wise and month-wise sales.
+- Retrieve information using SQL joins and subqueries.
+- Create reusable views, procedures and functions.
+
+6. NON-FUNCTIONAL REQUIREMENTS
+------------------------------
+- Data accuracy through primary and foreign keys.
+- Clear table and column names.
+- Simple and maintainable SQL scripts.
+- Consistent use of DECIMAL for money values.
+- Referential integrity between related records.
+
+7. PROJECT SCOPE AND ASSUMPTIONS
+--------------------------------
+- The project contains four tables: customers, products, orders and order_items.
+- It uses sample data for learning and demonstration.
+- An order can contain multiple order items.
+- price_at_purchase stores the item price when the order was made.
+- Sales analysis in the supplied queries includes only orders with status
+  'Completed'. Pending and Cancelled orders are excluded.
+- This is an educational database, not a live payment or inventory system.
+
+8. EXPECTED OUTCOMES
+-------------------
+The learner should be able to create a relational database, insert sample data,
+write mixed SQL queries, join related tables, use subqueries, create views,
+write stored procedures and create stored functions.

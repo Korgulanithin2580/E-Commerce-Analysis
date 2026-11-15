@@ -1,0 +1,34 @@
+erDiagram
+    CUSTOMERS ||--o{ ORDERS : places
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : appears_in
+
+    CUSTOMERS {
+        INT customer_id PK
+        VARCHAR customer_name
+        VARCHAR city
+        VARCHAR email UK
+    }
+
+    PRODUCTS {
+        INT product_id PK
+        VARCHAR product_name
+        VARCHAR category
+        DECIMAL price
+        INT stock
+    }
+
+    ORDERS {
+        INT order_id PK
+        INT customer_id FK
+        DATE order_date
+        VARCHAR status
+    }
+
+    ORDER_ITEMS {
+        INT item_id PK
+        INT order_id FK
+        INT product_id FK
+        INT quantity
+        DECIMAL price_at_purchase
+    }

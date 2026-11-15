@@ -1,0 +1,81 @@
+DATABASE DESIGN
+===============
+
+Database name: ecommerce_sales_db
+
+TABLE 1: customers
+------------------
+customer_id     INT             Primary Key
+customer_name   VARCHAR(100)    Customer's name
+city            VARCHAR(50)     Customer's city
+email           VARCHAR(100)    Unique email address
+
+Purpose:
+Stores the details of customers who use the online store.
+
+TABLE 2: products
+-----------------
+product_id      INT             Primary Key
+product_name    VARCHAR(100)    Product name
+category        VARCHAR(50)     Product category
+price           DECIMAL(10,2)   Current product price
+stock           INT             Available stock quantity
+
+Purpose:
+Stores the products offered by the online store.
+
+TABLE 3: orders
+---------------
+order_id        INT             Primary Key
+customer_id     INT             Foreign Key -> customers.customer_id
+order_date      DATE            Date of order
+status          VARCHAR(30)     Completed, Pending or Cancelled
+
+Purpose:
+Stores order-level information and identifies the customer who placed each
+order.
+
+TABLE 4: order_items
+-------------------
+item_id             INT             Primary Key
+order_id            INT             Foreign Key -> orders.order_id
+product_id          INT             Foreign Key -> products.product_id
+quantity            INT             Number of units ordered
+price_at_purchase   DECIMAL(10,2)   Unit price at order time
+
+Purpose:
+Stores the products and quantities belonging to each order. This table resolves
+the many-to-many relationship between orders and products.
+
+RELATIONSHIPS
+-------------
+1. customers (1) -------- (Many) orders
+   One customer may place multiple orders. Each order belongs to one customer.
+
+2. orders (1) ------------ (Many) order_items
+   One order may contain multiple order-item rows. Each order-item row belongs
+   to one order.
+
+3. products (1) ---------- (Many) order_items
+   One product may appear in multiple order-item rows. Each order-item row
+   refers to one product.
+
+PRIMARY KEYS
+------------
+customers.customer_id
+products.product_id
+orders.order_id
+order_items.item_id
+
+FOREIGN KEYS
+------------
+orders.customer_id references customers.customer_id
+order_items.order_id references orders.order_id
+order_items.product_id references products.product_id
+
+DESIGN NOTE
+-----------
+The order_items table is necessary because a single order can contain multiple
+products and a product can be included in many different orders. The
+price_at_purchase column preserves the price used for the order even if the
+current product price changes later.
